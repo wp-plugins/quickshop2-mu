@@ -1,4 +1,4 @@
-=== Quick Shop ===
+=== Quick Shop for WPMU ===
 Contributors: zackdesign, RavanH
 Donate link: http://www.zackdesign.biz/wp-plugins/34
 Tags: cart, shop, widget, post, sidebar, contact, php, plugin, paypal, tinymce
