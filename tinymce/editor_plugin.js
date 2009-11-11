@@ -1,73 +1,74 @@
-// Docu : http://tinymce.moxiecode.com/tinymce/docs/customization_plugins.html
+(function() {
+	// Load plugin specific language pack
+	tinymce.PluginManager.requireLangPack('quickShop');
 
-// Load the language file
-tinyMCE.importPluginLanguagePack('QuickShop', 'en,tr,de,sv,zh_cn,cs,fa,fr_ca,fr,pl,pt_br,nl,he,nb,ru,ru_KOI8-R,ru_UTF-8,nn,cy,es,is,zh_tw,zh_tw_utf8,sk,da');
+	tinymce.create('tinymce.plugins.QuickShopPlugin', {
+		/**
+		 * Initializes the plugin, this will be executed after the plugin has been created.
+		 * This call is done before the editor instance has finished it's initialization so use the onInit event
+		 * of the editor instance to intercept that event.
+		 *
+		 * @param {tinymce.Editor} ed Editor instance that the plugin is initialized in.
+		 * @param {string} url Absolute URL to where the plugin is located.
+		 */
+		init : function(ed, url) {
+			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceQuickShop');
+			ed.addCommand('mceQuickShop', function() {
+				ed.windowManager.open({
+					file : url + '/dialog.php',
+					width : 320 + ed.getLang('quickShop.delta_width', 0),
+					height : 170 + ed.getLang('quickShop.delta_height', 0),
+					inline : 1
+				}, {
+					plugin_url : url, // Plugin absolute URL
+					some_custom_arg : 'custom arg' // Custom argument
+				});
+			});
 
-var TinyMCE_QuickShopPlugin = {
-	/**
-	 * Returns information about the plugin as a name/value array.
-	 * The current keys are longname, author, authorurl, infourl and version.
-	 *
-	 * @returns Name/value array containing information about the plugin.
-	 * @type Array 
-	 */
-	getInfo : function() {
-		return {
-			longname : 'QuickShop',
-			author : 'QuickShop',
-			authorurl : 'http://zackdesign.biz',
-			infourl : 'http://zackdesign.biz',
-			version : "1.0"
-		};
-	},
+			// Register quickShop button
+			ed.addButton('quickShop', {
+				title : 'Add QuickShop product',
+				cmd : 'mceQuickShop',
+				image : url + '/img/button.png'
+			});
 
-	/**
-	 * Returns the HTML code for a specific control or empty string if this plugin doesn't have that control.
-	 * A control can be a button, select list or any other HTML item to present in the TinyMCE user interface.
-	 * The variable {$editor_id} will be replaced with the current editor instance id and {$pluginurl} will be replaced
-	 * with the URL of the plugin. Language variables such as {$lang_somekey} will also be replaced with contents from
-	 * the language packs.
-	 *
-	 * @param {string} cn Editor control/button name to get HTML for.
-	 * @return HTML code for a specific control or empty string.
-	 * @type string
-	 */
-	getControlHTML : function(cn) {
-	 	switch (cn) {
-			case "QuickShop":
-				return tinyMCE.getButtonHTML(cn, 'lang_QuickShop_desc', '{$pluginurl}/cart_add.png', 'mceQuickShop');
+			// Add a node change handler, selects the button in the UI when a image is selected
+			ed.onNodeChange.add(function(ed, cm, n) {
+				cm.setActive('quickShop', n.nodeName == 'IMG');
+			});
+		},
+
+		/**
+		 * Creates control instances based in the incomming name. This method is normally not
+		 * needed since the addButton method of the tinymce.Editor class is a more easy way of adding buttons
+		 * but you sometimes need to create more complex controls like listboxes, split buttons etc then this
+		 * method can be used to create those.
+		 *
+		 * @param {String} n Name of the control to create.
+		 * @param {tinymce.ControlManager} cm Control manager to use inorder to create new control.
+		 * @return {tinymce.ui.Control} New control instance or null if no control was created.
+		 */
+		createControl : function(n, cm) {
+			return null;
+		},
+
+		/**
+		 * Returns information about the plugin as a name/value array.
+		 * The current keys are longname, author, authorurl, infourl and version.
+		 *
+		 * @return {Object} Name/value array containing information about the plugin.
+		 */
+		getInfo : function() {
+			return {
+				longname : 'QuickShop plugin',
+				author : 'ElbertF',
+				authorurl : 'http://elbertf.com',
+				infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/quickShop',
+				version : "1.0"
+			};
 		}
+	});
 
-		return "";
-	},
-
-	/**
-	 * Executes a specific command, this function handles plugin commands.
-	 *
-	 * @param {string} editor_id TinyMCE editor instance id that issued the command.
-	 * @param {HTMLElement} element Body or root element for the editor instance.
-	 * @param {string} command Command name to be executed.
-	 * @param {string} user_interface True/false if a user interface should be presented.
-	 * @param {mixed} value Custom value argument, can be anything.
-	 * @return true/false if the command was executed by this plugin or not.
-	 * @type
-	 */
-	execCommand : function(editor_id, element, command, user_interface, value) {
-	 
-	 	// Handle commands
-		switch (command) {
-			// Remember to have the "mce" prefix for commands so they don't intersect with built in ones in the browser.
-			case "mceQuickShop":
-				// Do your custom command logic here.
-				qs_buttonscript();
-				return true;
-		}
-		// Pass to next handler in chain
-		return false;
-	}
-
-};
-
-// Adds the plugin class to the list of available TinyMCE plugins
-tinyMCE.addPlugin("QuickShop", TinyMCE_QuickShopPlugin);
-
+	// Register plugin
+	tinymce.PluginManager.add('quickShop', tinymce.plugins.QuickShopPlugin);
+})();

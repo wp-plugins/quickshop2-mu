@@ -1,5 +1,6 @@
-// English lang variables
+// English lang variables for WP2.5
 
-tinyMCE.addToLang('QuickShop',{
+tinyMCE.addI18n({en:{
+QuickShop:{	
 desc : 'Add QuickShop product'
-});
+}}});

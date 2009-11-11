@@ -1,50 +1,35 @@
-function init() {
+function init()
+{
 	tinyMCEPopup.resizeToInnerSize();
 }
 
-function getCheckedValue(radioObj) {
-	if(!radioObj)
-		return "";
-	var radioLength = radioObj.length;
-	if(radioLength == undefined)
-		if(radioObj.checked)
-			return radioObj.value;
+function insertQSLink()
+{
+	var tagtext;
+	var quickshop = document.getElementById('quickshop_panel');
+
+	if (quickshop.className.indexOf('current') != -1)
+	{
+		var product = document.getElementById('product').value;
+	
+		if ( product )
+		{
+			tagtext = '[quickshop product="' + product + '"]';
+		}
 		else
-			return "";
-	for(var i = 0; i < radioLength; i++) {
-		if(radioObj[i].checked) {
-			return radioObj[i].value;
+		{
+			tinyMCEPopup.close();
 		}
 	}
-	return "";
-}
 
-
-function insertQSLink() {
-	
-	var tagtext;
-	
-	var quickshop = document.getElementById('quickshop_panel');
-	
-	// who is active ?
-	if (quickshop.className.indexOf('current') != -1) {
-		var product = document.getElementById('product').value;
-		var price = document.getElementById('price').value;
-		var shipping = document.getElementById('shipping').value;
-		var shipping2 = document.getElementById('shipping2').value;
-		if ((product != '') || (price != '') )
-			tagtext = "[quickshop:"+ product + ":price:" + price + ":shipping:" + shipping + ":shipping2:" + shipping2 + ":end]";
-		else
-			tinyMCEPopup.close();
-	}
-	
-	if(window.tinyMCE) {
+	if ( window.tinyMCE )
+	{
 		window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, tagtext);
-//		tinyMCE.execCommand("mceCleanup");
- 		tinyMCE.selectedInstance.repaint();
-	} else {
-		edCanvas = mceWindow.document.getElementById('content');
-		window.edInsertContent(edCanvas, tagtext);
+		
+		tinyMCEPopup.editor.execCommand('mceRepaint');
+		
+		tinyMCEPopup.close();
 	}
-	tinyMCEPopup.close();
+	
+	return;
 }
