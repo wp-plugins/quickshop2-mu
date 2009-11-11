@@ -4,7 +4,7 @@ Donate link: http://www.zackdesign.biz/wp-plugins/94
 Tags: cart, shop, widget, post, sidebar, contact, php, plugin, paypal, tinymce
 Requires at least: 2.6
 Tested up to: 2.8.5
-Stable tag: 2.1.0
+Stable tag: 1.3.12
 
 QuickShop is a Wordpress Shopping Cart with both Paypal and Email functionality built-in.
 
