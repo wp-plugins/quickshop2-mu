@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: QuickShop
+Plugin Name: QuickShop for WPMU
 Plugin URI: http://www.zackdesign.biz/wp-plugins/34
 Description: Quick and easy shopping cart with widget!
 Author: Isaac Rowntree modified by RavanH for WPMU
