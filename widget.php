@@ -3,7 +3,6 @@
 // widget shopping cart form code cleanup + refresh icon
 // <<
 
-
 if ( $this->cart_has_items() )
 {
 	$currency           = get_option('quickshop_currency')       or $currency            = 'USD';
@@ -162,3 +161,4 @@ else
 			;
 	}
 }
+?>

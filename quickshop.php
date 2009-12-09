@@ -31,7 +31,7 @@ if ( isset($quickShop) )
 
 	add_filter('the_content', array($quickShop, 'content_filter'));
 
-// modified by RavanH >>
+// modified by RavanH for MU compatibility >>
 	if ( dirname(dirname(plugin_basename(__FILE__))) == WPMU_PLUGIN_URL )
 		$quickShop->pluginURL = WPMU_PLUGIN_URL . '/' . dirname(plugin_basename(__FILE__)) . '/';
 	else

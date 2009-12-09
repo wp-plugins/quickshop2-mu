@@ -5,12 +5,14 @@
 
 	<form method="post" action="options.php">
 <?php 
+// modified by RavanH for MU compatibility >>
 if(function_exists(settings_fields)) { 
 	settings_fields('quickshop-products'); 
 } else { 
 	wp_nonce_field('update-options'); 
 	echo '<input name="action" type="hidden" value="update" />'; 
 	echo '<input name="page_options" type="hidden" value="quickshop_products,quickshop_shipping,quickshop_shipping_start" />'; }
+// <<
 ?>
 
 		<div style="float: left; width: 50%;">

@@ -1,0 +1,12 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<select>
+			<option value="">Select a product..</option>
+			<?php foreach ( $inventory as $productName => $d ): ?>
+			<option><?php echo $productName; ?></option>
+			<?php endforeach ?>
+		</selecT>
+	</body>
+</html>
