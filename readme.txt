@@ -4,42 +4,21 @@ Donate link: http://www.zackdesign.biz/wp-plugins/94
 Tags: cart, shop, widget, post, sidebar, contact, php, plugin, paypal, tinymce
 Requires at least: 2.6
 Tested up to: 2.8.5
-Stable tag: 2.1.o
+Stable tag: 2.1.0
 
-QuickShop is a Wordpress Shopping Cart with both Paypal and Email functionality built-in.
+QuickShop is a Wordpress Shopping Cart with both Paypal and Email functionality built-in. DISCONTINUED !
 
 == Description ==
 
-QuickShop supports any WordPress that has the Sidebar Widgets installed. It adds a SideBar widget that shows the user what they currently have in the cart and allows them to remove the items. There is a TinyMCE button to easily allow you to add products to your posts/pages.
-
-This is a special version. For the regular QuickShop please go to the [QuickShop for WordPress plugin page](http://wordpress.org/extend/plugins/quick-shop/) and get the latest version (and support) there.
-
-= WPMU version =
-
-This version has been created to run on WPMU. However, it also works just fine on regular WP. 
-
-*This version has not been created to compete with regular QuickShop in any way!* 
-As soon as the changes are included in the regular QuickShop version, this one will stop being developed. Users will be referred to the regular version for upgrades from then on.
-
-Please subscribe to http://www.zackdesign.biz/forum?forum=bug-reports&topic=cannot-change-settings-wpmu-26&xfeed=topic for updates.
-
-= Future development =
-
-The only thing missing in regular QuickShop is internationalisation. This will be adressed in the near future.
+THIS PLUGIN HAS BEEN DISCONTINUED. Multisite support is now integrated into the regular version of [Quick Shop](http://wordpress.org/extend/plugins/quick-shop/).
 
 == Installation ==
 
-1. Upload the 'quickshop' folder to the `plugins` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Edit your QuickShop settings in Settings -> QuickShop
-4. Edit your Quickshop inventory in Tools - > QuickShop 
-5. Add tags to your post text using the TinyMCE button
-
-If the TinyMCE QuickShop button doesn't appear, simply type: [quickshop product="WHATEVER_YOUR_PRODUCT_NAME_IS"]
+Please go to [Quick Shop](http://wordpress.org/extend/plugins/quick-shop/)
 
 = WPMU =
 
-Do *can* use this plugin in `mu-plugins` !
+You *can* use this plugin in `mu-plugins` !
 
 == Changelog ==
 

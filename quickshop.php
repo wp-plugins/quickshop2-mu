@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: QuickShop2 MU
-Plugin URI: http://www.zackdesign.biz/wp-plugins/94
+Plugin URI: http://4visions.nl/en/wordpress-plugins/quickshop2-mu/
 Description: Quick and easy shopping cart with widget!
 Author: Isaac Rowntree & ElbertF modified for WPMU by RavanH
 Version: 2.1.0
